@@ -1,46 +1,60 @@
-#include <iostream>
-#include <stdlib.h>
-#include <windows.h>
-#include <vector>
-#include <algorithm>
-#include <locale>
-#include <conio.h>
-#include <fstream>
+#include "stdafx.h"
+#include "locale"
+#include "iostream"
 using namespace std;
+
+struct ban
+{
+	char name[100];
+	string adres;
+	int proc;
+	int time1;
+	int time2;
+	string fil;
+};
+
+void show(ban obj)
+{
+	int i = 1;
+	char **mas = new char *[1000];
+	cout << "Название банка: " << obj.name << endl;
+	cout << "Адрес филиала: " << obj.adres << endl;
+	cout << "Процент вклада: " << obj.proc << "%" << endl;
+	cout << "Время работы: " << obj.time1 << " - " << obj.time2 << endl;
+	cout << "Есть ли филиал: " << obj.fil << endl;
+}
 
 int main()
 {
-	setlocale(LC_ALL, "RUS");
-	vector <vector<int>> gg;
-	int i, n, k, j;
-	ofstream fileo;
-	cout << "Введите ограничение: ";
+	setlocale(LC_ALL,"RUS");
+	int i, n, d = 1 ;
+	string k;
+	char **mas = new char *[1000];
+	cout << "Введите количество вводимых банков: ";
 	cin >> n;
-	fileo.open("C:\\Users\\Andrey\\Documents\\Файл.txt");
-	fileo << "Вывод массива:" << endl;
-	for (i = 0; i < n; i++)
+	ban j[1000];
+	for(i = 1; i <= n; i++)
 	{
-		vector <int> a;
-		for (j = 0; j < n; j++)
-		{
-			k = rand() % 150 - 50;
-			a.push_back(k);
-		}
-		gg.push_back(a);
+		cout << "Введите данные " << i << " банка(назвние, адрес, процент вклада, время открытия и закрытия, наличие филиала): " << endl;
+		cin >> j[i].name;
+		cin >> j[i].adres;
+		cin >> j[i].proc;
+		cin >> j[i].time1;
+		cin >> j[i].time2;
+		cin >> j[i].fil;
 	}
-	cout << "Вывод массива:" << endl;
-	for (i = 0; i < n; i++)
+	cout << endl;
+	cout << "Наличие филиалов: ";
+	cin >> k;
+	cout << endl;
+	cout << "Вывод данных: " << endl;
+	for(i = 1; i <= n; i++)
 	{
-		for (j = 0; j < n; j++)
+		if(k == j[i].fil)
 		{
-			std::cout.width(4);
-			std::cout << gg[i][j];
-			fileo.width(4);
-			fileo << gg[i][j];
+			show(j[i]);
+			cout << "\n";
 		}
-		std::cout << endl;
-		fileo << endl;
 	}
-	fileo << endl << endl;
 	system("pause");
 }
