@@ -77,4 +77,3 @@ int main()
 		cout<<"Недопустимое значение!"<<endl;
 	system("pause");
 }
-
