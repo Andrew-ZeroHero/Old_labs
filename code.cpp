@@ -1,46 +1,165 @@
-#include <iostream>
-#include <stdlib.h>
-#include <windows.h>
-#include <vector>
-#include <algorithm>
-#include <locale>
-#include <conio.h>
-#include <fstream>
+#include "iostream"
+#include "string"
+#include "windows.h"
+#include "conio.h"
+#include "math.h"
+#include "locale"
 using namespace std;
-
 int main()
 {
+	int x;
 	setlocale(LC_ALL, "RUS");
-	vector <vector<int>> gg;
-	int i, n, k, j;
-	ofstream fileo;
-	cout << "Введите ограничение: ";
-	cin >> n;
-	fileo.open("C:\\Users\\Andrey\\Documents\\Файл.txt");
-	fileo << "Вывод массива:" << endl;
-	for (i = 0; i < n; i++)
+	cout << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n";
+	cout << "Введите число квадратов: ";
+
+
+	HDC hDC = GetDC(GetConsoleWindow());
+	HPEN Pen1 = CreatePen(PS_SOLID, 2, RGB(255, 255, 0));
+	HPEN Pen2 = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
+	HPEN Pen3 = CreatePen(PS_SOLID, 2, RGB(255, 0, 255));
+	HPEN Pen4 = CreatePen(PS_SOLID, 2, RGB(0, 255, 255));
+	HPEN Pen5 = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
+	while (true)
 	{
-		vector <int> a;
-		for (j = 0; j < n; j++)
+		cin >> x;
+		if (x == 1)
 		{
-			k = rand() % 150 - 50;
-			a.push_back(k);
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen1);
+
+			LineTo(hDC, 100, 0);
+			LineTo(hDC, 100, 100);
+			LineTo(hDC, 0, 100);
+			LineTo(hDC, 0, 0);
 		}
-		gg.push_back(a);
-	}
-	cout << "Вывод массива:" << endl;
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j < n; j++)
+		else if (x == 2)
 		{
-			std::cout.width(4);
-			std::cout << gg[i][j];
-			fileo.width(4);
-			fileo << gg[i][j];
+			x = 1;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen1);
+
+			LineTo(hDC, 100, 0);
+			LineTo(hDC, 100, 100);
+			LineTo(hDC, 0, 100);
+			LineTo(hDC, 0, 0);
+			x = 2;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen2);
+
+			LineTo(hDC, 100 / x, 0);
+			LineTo(hDC, 100 / x, 100 / x);
+			LineTo(hDC, 0, 100 / x);
+			LineTo(hDC, 0, 0);
 		}
-		std::cout << endl;
-		fileo << endl;
+		else if (x == 3)
+		{
+			x = 1;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen1);
+
+			LineTo(hDC, 100, 0);
+			LineTo(hDC, 100, 100);
+			LineTo(hDC, 0, 100);
+			LineTo(hDC, 0, 0);
+			x = 2;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen2);
+
+			LineTo(hDC, 100 / x, 0);
+			LineTo(hDC, 100 / x, 100 / x);
+			LineTo(hDC, 0, 100 / x);
+			LineTo(hDC, 0, 0);
+			x = 3;
+			SelectObject(hDC, Pen3);
+			MoveToEx(hDC, 50, 0, NULL);
+
+			LineTo(hDC, 50 + 100 / x, 0);
+			LineTo(hDC, 50 + 100 / x, 100 / x);
+			LineTo(hDC, 50, 100 / x);
+			LineTo(hDC, 50, 0);
+
+		}
+		else if (x == 4)
+		{
+			x = 1;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen1);
+
+			LineTo(hDC, 100, 0);
+			LineTo(hDC, 100, 100);
+			LineTo(hDC, 0, 100);
+			LineTo(hDC, 0, 0);
+			x = 2;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen2);
+
+			LineTo(hDC, 100 / x, 0);
+			LineTo(hDC, 100 / x, 100 / x);
+			LineTo(hDC, 0, 100 / x);
+			LineTo(hDC, 0, 0);
+			x = 3;
+			SelectObject(hDC, Pen3);
+			MoveToEx(hDC, 50, 0, NULL);
+
+			LineTo(hDC, 50 + 100 / x, 0);
+			LineTo(hDC, 50 + 100 / x, 100 / x);
+			LineTo(hDC, 50, 100 / x);
+			LineTo(hDC, 50, 0);
+			x = 4;
+			SelectObject(hDC, Pen4);
+			MoveToEx(hDC, 0, 50, NULL);
+
+			LineTo(hDC, 100 / x, 50);
+			LineTo(hDC, 100 / x, 50 + 100 / x);
+			LineTo(hDC, 0, 50 + 100 / x);
+			LineTo(hDC, 0, 50);
+
+		}
+		else if (x == 5)
+		{
+			x = 1;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen1);
+
+			LineTo(hDC, 100, 0);
+			LineTo(hDC, 100, 100);
+			LineTo(hDC, 0, 100);
+			LineTo(hDC, 0, 0);
+			x = 2;
+			MoveToEx(hDC, 0, 0, NULL);
+			SelectObject(hDC, Pen2);
+
+			LineTo(hDC, 100 / x, 0);
+			LineTo(hDC, 100 / x, 100 / x);
+			LineTo(hDC, 0, 100 / x);
+			LineTo(hDC, 0, 0);
+			x = 3;
+			SelectObject(hDC, Pen3);
+			MoveToEx(hDC, 50, 0, NULL);
+
+			LineTo(hDC, 50 + 100 / x, 0);
+			LineTo(hDC, 50 + 100 / x, 100 / x);
+			LineTo(hDC, 50, 100 / x);
+			LineTo(hDC, 50, 0);
+			x = 4;
+			SelectObject(hDC, Pen4);
+			MoveToEx(hDC, 0, 50, NULL);
+
+			LineTo(hDC, 100 / x, 50);
+			LineTo(hDC, 100 / x, 50 + 100 / x);
+			LineTo(hDC, 0, 50 + 100 / x);
+			LineTo(hDC, 0, 50);
+			x = 5;
+			SelectObject(hDC, Pen5);
+			MoveToEx(hDC, 25, 50, NULL);
+
+			LineTo(hDC, 25 + 100 / x, 50);
+			LineTo(hDC, 25 + 100 / x, 50 + 100 / x);
+			LineTo(hDC, 25, 50 + 100 / x);
+			LineTo(hDC, 25, 50);
+		}
+		else break;
 	}
-	fileo << endl << endl;
-	system("pause");
+	_getch();
+	return 0;
 }
